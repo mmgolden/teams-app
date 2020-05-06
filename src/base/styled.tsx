@@ -9,6 +9,7 @@ export const theme = Object.freeze({
     primaryFont: '#333333',
     inputBorder: '#dddddd',
     error: '#e50000',
+    errorBackground: 'rgba(239,0,0,0.1)',
   },
 });
 
