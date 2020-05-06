@@ -1,7 +1,8 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
+import { Authentication } from '../../typings/authentication';
 
 interface Options {
-  authentication: AxiosResponse<any> | undefined;
+  authentication?: Authentication;
   handleErrors: () => void;
 }
 
@@ -16,12 +17,10 @@ export const getUser = async ({ authentication, handleErrors }: Options) => {
   try {
     user = await axios.get(`${process.env.REACT_APP_API_URL}/user`, {
       headers: {
-        Authorization: `${authentication.data.token_type} ${authentication.data.access_token}`,
+        Authorization: `${authentication.token_type} ${authentication.access_token}`,
         'X-Requested-With': 'XMLHttpRequest',
       },
     });
-
-    console.log({ user });
   } catch (error) {
     handleErrors();
   }
