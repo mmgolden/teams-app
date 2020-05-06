@@ -6,10 +6,14 @@ import { PrimaryButton } from '../../components/buttons';
 import { TextField } from '../../components/form';
 import { ERROR_MESSAGES } from '../../base/constants';
 import { Status } from '../../components/form/Status';
-import { useHistory } from 'react-router';
 import { getAuthentication } from '../../base/auth/getAuthentication';
 import { getUser } from '../../base/auth/getUser';
-import { login } from '../../base/auth/login';
+import { Authentication } from '../../typings/authentication';
+import { User } from '../../typings/user';
+
+interface Props {
+  onSuccess: (authentication: Authentication, user: User) => void;
+}
 
 interface FormValues {
   username: string;
@@ -25,9 +29,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required(ERROR_MESSAGES.PASSWORD_REQUIRED),
 });
 
-export const LoginForm: React.FC = () => {
-  const history = useHistory();
-
+export const LoginForm: React.FC<Props> = ({ onSuccess }) => {
   const handleSubmit = async (
     values: FormValues,
     actions: FormikHelpers<FormValues>
@@ -42,17 +44,16 @@ export const LoginForm: React.FC = () => {
       handleErrors,
     });
 
-    const user = await getUser({ authentication, handleErrors });
+    const user = await getUser({
+      authentication: authentication?.data,
+      handleErrors,
+    });
 
     if (!authentication || !user) {
       return;
     }
 
-    login({
-      authentication,
-      user: user.data,
-    });
-    history.push('/home');
+    onSuccess(authentication.data, user.data.data);
   };
 
   return (
