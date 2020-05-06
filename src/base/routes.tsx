@@ -6,6 +6,7 @@ import { ProfilePage } from '../pages/profile';
 export const publicRoutes = [
   {
     path: '/signin',
+    exact: true,
     component: LoginPage,
   },
   {
@@ -17,6 +18,11 @@ export const publicRoutes = [
 export const privateRoutes = [
   {
     path: '/home',
+    exact: true,
     component: ProfilePage,
+  },
+  {
+    path: '*',
+    component: () => <Redirect to="/home" />,
   },
 ];
