@@ -23,8 +23,6 @@ export const getAuthentication = async ({
       grant_type: process.env.REACT_APP_GRANT_TYPE,
       scope: process.env.REACT_APP_SCOPE,
     });
-
-    console.log({ authentication });
   } catch (error) {
     handleErrors();
   }
