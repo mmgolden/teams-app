@@ -62,7 +62,8 @@ export const LoginForm: React.FC<Props> = ({ onSuccess }) => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
-        render={({ status, setStatus }) => {
+      >
+        {({ status, setStatus }) => {
           return (
             <>
               {status && (
@@ -88,7 +89,7 @@ export const LoginForm: React.FC<Props> = ({ onSuccess }) => {
             </>
           );
         }}
-      />
+      </Formik>
     </FormContainer>
   );
 };

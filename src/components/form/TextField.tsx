@@ -20,9 +20,8 @@ export const TextField: React.FC<Props> = ({
   autoComplete,
 }) => {
   return (
-    <Field
-      name={name}
-      render={({ field, form, meta }: FieldProps) => {
+    <Field name={name}>
+      {({ field, form, meta }: FieldProps) => {
         return (
           <FieldContainer>
             <label htmlFor={name}>{label}</label>
@@ -41,7 +40,7 @@ export const TextField: React.FC<Props> = ({
           </FieldContainer>
         );
       }}
-    />
+    </Field>
   );
 };
 
