@@ -6,6 +6,9 @@ export const theme = Object.freeze({
     pageBackground: '#f5f7fc',
     cardBackground: '#ffffff',
     contrastFont: '#ffffff',
+    primaryFont: '#333333',
+    inputBorder: '#dddddd',
+    error: '#e50000',
   },
 });
 
