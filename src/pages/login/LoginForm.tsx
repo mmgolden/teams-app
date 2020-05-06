@@ -5,8 +5,11 @@ import { Formik, Form, FormikHelpers } from 'formik';
 import { PrimaryButton } from '../../components/buttons';
 import { TextField } from '../../components/form';
 import { ERROR_MESSAGES } from '../../base/constants';
-import axios from 'axios';
 import { Status } from '../../components/form/Status';
+import { useHistory } from 'react-router';
+import { getAuthentication } from '../../base/auth/getAuthentication';
+import { getUser } from '../../base/auth/getUser';
+import { login } from '../../base/auth/login';
 
 interface FormValues {
   username: string;
@@ -22,33 +25,36 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required(ERROR_MESSAGES.PASSWORD_REQUIRED),
 });
 
-const handleSubmit = async (
-  values: FormValues,
-  actions: FormikHelpers<FormValues>
-) => {
-  const { username, password } = values;
-
-  // Get token from API
-  try {
-    const authentication = await axios.post(
-      `${process.env.REACT_APP_TOKEN_URL}`,
-      {
-        username,
-        password,
-        client_id: process.env.REACT_APP_CLIENT_ID,
-        client_secret: process.env.REACT_APP_CLIENT_SECRET,
-        grant_type: process.env.REACT_APP_GRANT_TYPE,
-        scope: process.env.REACT_APP_SCOPE,
-      }
-    );
-
-    console.log(authentication);
-  } catch (error) {
-    actions.setStatus('Something went wrong');
-  }
-};
-
 export const LoginForm: React.FC = () => {
+  const history = useHistory();
+
+  const handleSubmit = async (
+    values: FormValues,
+    actions: FormikHelpers<FormValues>
+  ) => {
+    const { username, password } = values;
+
+    const handleErrors = () => actions.setStatus(ERROR_MESSAGES.GENERIC);
+
+    const authentication = await getAuthentication({
+      username,
+      password,
+      handleErrors,
+    });
+
+    const user = await getUser({ authentication, handleErrors });
+
+    if (!authentication || !user) {
+      return;
+    }
+
+    login({
+      authentication,
+      user: user.data,
+    });
+    history.push('/home');
+  };
+
   return (
     <FormContainer>
       <Formik
@@ -59,10 +65,7 @@ export const LoginForm: React.FC = () => {
           return (
             <>
               {status && (
-                <Status
-                  status="Something went wrong"
-                  close={() => setStatus(undefined)}
-                />
+                <Status status={status} close={() => setStatus(undefined)} />
               )}
               <Form>
                 <TextField
