@@ -3,6 +3,7 @@ import {
   REFRESH_TOKEN_KEY,
   CURRENT_USER_KEY,
   ACCESS_TOKEN_EXPIRATION,
+  TOKEN_TYPE,
 } from '../constants';
 import { User } from '../../typings/user';
 import { Authentication } from '../../typings/authentication';
@@ -19,6 +20,7 @@ export const login = ({ authentication, user }: Options) => {
   );
 
   try {
+    localStorage.setItem(TOKEN_TYPE, authentication.token_type);
     localStorage.setItem(ACCESS_TOKEN_KEY, authentication.access_token);
     localStorage.setItem(REFRESH_TOKEN_KEY, authentication.refresh_token);
     localStorage.setItem(ACCESS_TOKEN_EXPIRATION, expirationDate.toISOString());
