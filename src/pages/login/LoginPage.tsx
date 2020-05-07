@@ -34,18 +34,18 @@ export const LoginPage: React.FC = () => {
   }, [history]);
 
   return (
-    <PageContainer>
+    <LoginPageContainer>
       <div className="login-container">
         <img src={logo} alt="Wethos logo" className="login-logo" />
         <Card>
           <LoginForm onSuccess={handleSuccess} />
         </Card>
       </div>
-    </PageContainer>
+    </LoginPageContainer>
   );
 };
 
-const PageContainer = styled.main`
+const LoginPageContainer = styled.main`
   background: ${({ theme }) => theme.colors.pageBackground};
   width: 100%;
   height: 100vh;
