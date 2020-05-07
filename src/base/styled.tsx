@@ -12,6 +12,7 @@ export const theme = Object.freeze({
     error: '#e50000',
     errorBackground: 'rgba(239,0,0,0.1)',
     navigationBackground: '#ffffff',
+    placeholderBackground: '#ccced1',
   },
 });
 
