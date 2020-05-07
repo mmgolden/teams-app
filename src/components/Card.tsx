@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from '../base/styled';
 
-export const Card: React.FC = ({ children }) => {
-  return <CardContainer>{children}</CardContainer>;
+interface Props {
+  className?: string;
+}
+
+export const Card: React.FC<Props> = ({ children, className }) => {
+  return <CardContainer className={className}>{children}</CardContainer>;
 };
 
 const CardContainer = styled.div`
