@@ -22,8 +22,8 @@ export const ExperienceCard: React.FC<Props> = ({ specialist }) => {
             const { title, company, description, links } = exp;
 
             return (
-              <>
-                <div key={`${title}-${index}`}>
+              <React.Fragment key={`${title}-${index}`}>
+                <div>
                   <h3 className="experience-title">{title}</h3>
                   {company && <h4 className="experience-company">{company}</h4>}
                   {description && (
@@ -57,7 +57,7 @@ export const ExperienceCard: React.FC<Props> = ({ specialist }) => {
                     <Divider />
                   </div>
                 )}
-              </>
+              </React.Fragment>
             );
           })}
         </>
@@ -101,8 +101,12 @@ const StyledExperienceCard = styled(Card)`
   .experience-description {
     color: ${({ theme }) => theme.colors.primaryFont};
     margin: 0;
-    font-size: 1rem;
-    line-height: 1.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+
+    ul {
+      padding-left: 1.25rem;
+    }
   }
 
   .experience-link-list {
