@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from '../../base/styled';
 import { Specialist } from '../../typings/specialist';
 import { Tags } from '../../components/Tags';
 
@@ -120,9 +121,18 @@ export const SpecialistLanguages: React.FC<Props> = ({ specialist }) => {
   });
 
   return (
-    <>
-      <h2 className="profile-heading">Languages</h2>
+    <LanguagesContainer>
+      <h2 className="languages-heading">Languages</h2>
       {languages.length > 0 && <Tags tags={formattedLanguages} />}
-    </>
+    </LanguagesContainer>
   );
 };
+
+const LanguagesContainer = styled.div`
+  .languages-heading {
+    color: ${({ theme }) => theme.colors.primaryFont};
+    font-weight: 500;
+    margin: 0 0 0.75rem 0;
+    font-size: 1.25rem;
+  }
+`;
