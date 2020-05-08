@@ -77,10 +77,17 @@ interface Deliverable {
   usage: Usage;
 }
 
+interface Cause {
+  id: number;
+  description: string | null;
+  name: string;
+  reason: string | null;
+}
+
 export interface Specialist {
   assets: [];
   balance: number;
-  causes: [];
+  causes: Cause[];
   checkpoints: Checkpoint[];
   city: City;
   deliverables: Deliverable[];

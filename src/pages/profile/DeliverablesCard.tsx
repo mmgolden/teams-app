@@ -31,6 +31,8 @@ export const DeliverablesCard: React.FC<Props> = ({ specialist }) => {
 };
 
 const StyledDeliverablesCard = styled(Card)`
+  margin-bottom: 3rem;
+
   .deliverables-container {
     display: grid;
     grid-row-gap: 1rem;

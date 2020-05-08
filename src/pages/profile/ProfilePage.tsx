@@ -12,6 +12,7 @@ import { PageError } from '../../components/PageError';
 import { ProfileCard } from './ProfileCard';
 import { ExperienceCard } from './ExperienceCard';
 import { DeliverablesCard } from './DeliverablesCard';
+import { CausesCard } from './CausesCard';
 
 export const ProfilePage: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -67,6 +68,7 @@ export const ProfilePage: React.FC = () => {
         <div className="profile-column">
           <ExperienceCard specialist={specialist} />
           <DeliverablesCard specialist={specialist} />
+          <CausesCard specialist={specialist} />
         </div>
       </ProfilePageContainer>
     </Layout>
