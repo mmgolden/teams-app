@@ -2,7 +2,12 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import { LoginPage } from '../pages/login';
 import { ProfilePage } from '../pages/profile';
-import { ROUTES } from './constants';
+
+export const ROUTES = {
+  SIGN_IN: '/signin',
+  HOME: '/home',
+  PROJECTS: '/projects',
+};
 
 export const publicRoutes = [
   {
