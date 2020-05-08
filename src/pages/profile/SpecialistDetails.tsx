@@ -19,6 +19,7 @@ export const SpecialistDetails: React.FC<Props> = ({
 }) => {
   const formattedCreatedAt = dayjs(created_at).format('MMMM D, YYYY');
 
+  // TODO: Add city information
   return (
     <DetailsContainer>
       {profile_image ? (
