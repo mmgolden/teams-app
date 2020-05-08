@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '../../base/styled';
 import { Specialist } from '../../typings/specialist';
-import { Card, CardTitle, EmptyText } from '../../components/card';
+import { Card, CardTitle, EmptyText } from '../../components/cards';
 
 interface Props {
   specialist: Specialist;
