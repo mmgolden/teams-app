@@ -3,6 +3,7 @@ import styled from '../../base/styled';
 import { Specialist } from '../../typings/specialist';
 import { Card } from '../../components/Card';
 import dayjs from 'dayjs';
+import { sanitizeUrl } from '@braintree/sanitize-url';
 
 interface Props {
   specialist: Specialist;
@@ -21,7 +22,7 @@ export const ProfileCard: React.FC<Props> = ({ specialist }) => {
     <StyledProfileCard>
       {profile_image ? (
         <img
-          src={profile_image}
+          src={sanitizeUrl(profile_image)}
           alt={`${first_name} ${last_name}`}
           className="profile-image"
         />
@@ -36,8 +37,8 @@ export const ProfileCard: React.FC<Props> = ({ specialist }) => {
           <ul className="social-links-list">
             {links.map((link) => {
               return (
-                <li key={link.url}>
-                  <a href={link.url}>{link.title}</a>
+                <li key={link.title}>
+                  <a href={sanitizeUrl(link.url)}>{link.title}</a>
                 </li>
               );
             })}
