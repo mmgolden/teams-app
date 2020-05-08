@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '../../base/styled';
 import { Specialist } from '../../typings/specialist';
 import { sanitizeUrl } from '@braintree/sanitize-url';
+import { Divider } from '../../components/Divider';
 
 interface Props {
   specialist: Specialist;
@@ -10,28 +11,31 @@ interface Props {
 export const SpecialistLinks: React.FC<Props> = ({ specialist }) => {
   const { links } = specialist;
 
+  if (links.length === 0) {
+    return null;
+  }
+
   return (
     <LinksContainer>
       <h2 className="social-links-heading">Social Links</h2>
-      {links.length > 0 ? (
-        <ul className="social-links-list">
-          {links.map((link) => {
-            return (
-              <li key={link.title}>
-                <a
-                  href={sanitizeUrl(link.url)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.title}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
-        <p className="empty-text">No social links found</p>
-      )}
+      <ul className="social-links-list">
+        {links.map((link) => {
+          return (
+            <li key={link.title}>
+              <a
+                href={sanitizeUrl(link.url)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <div className="profile-spacer">
+        <Divider />
+      </div>
     </LinksContainer>
   );
 };
@@ -62,9 +66,7 @@ const LinksContainer = styled.div`
     }
   }
 
-  .empty-text {
-    color: ${({ theme }) => theme.colors.subtleFont};
-    font-size: 1rem;
-    margin: 0;
+  .profile-spacer {
+    margin: 1.5rem 0;
   }
 `;
