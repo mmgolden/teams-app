@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '../base/styled';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../base/constants';
+import { ROUTES } from '../base/routes';
 import logo from '../assets/wethos.png';
 import { useHistory } from 'react-router-dom';
 
