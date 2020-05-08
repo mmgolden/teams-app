@@ -3,47 +3,29 @@ import styled from '../../base/styled';
 import { Specialist } from '../../typings/specialist';
 import { Card } from '../../components/Card';
 import { Divider } from '../../components/Divider';
-import { Tags } from '../../components/Tags';
 import { SpecialistDetails } from './SpecialistDetails';
+import { SpecialistLanguages } from './SpecialistLanguages';
 import { SpecialistLinks } from './SpecialistLinks';
 
 interface Props {
   specialist: Specialist;
 }
 
-// TODO: Get full list of language codes
-const getLanguage = (code: string) => {
-  switch (code) {
-    case 'eng':
-      return 'English';
-    default:
-      throw new Error('Unknown language code passed');
-  }
-};
-
 export const ProfileCard: React.FC<Props> = ({ specialist }) => {
-  const { languages } = specialist;
+  const { links, languages } = specialist;
 
-  const formattedLanguages = languages.map((language) =>
-    getLanguage(language.code)
-  );
+  console.log(specialist);
 
   return (
     <StyledProfileCard>
       <SpecialistDetails specialist={specialist} />
-      <div className="profile-spacer">
-        <Divider />
-      </div>
-      <SpecialistLinks specialist={specialist} />
-      <div className="profile-spacer">
-        <Divider />
-      </div>
-      <h2 className="profile-heading">Languages</h2>
-      {languages.length > 0 ? (
-        <Tags tags={formattedLanguages} />
-      ) : (
-        <p className="empty-text">No languages found</p>
+      {(links.length > 0 || languages.length > 0) && (
+        <div className="profile-spacer">
+          <Divider />
+        </div>
       )}
+      <SpecialistLinks specialist={specialist} />
+      <SpecialistLanguages specialist={specialist} />
     </StyledProfileCard>
   );
 };
