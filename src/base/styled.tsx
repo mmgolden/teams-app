@@ -13,6 +13,7 @@ export const theme = Object.freeze({
     errorBackground: 'rgba(239,0,0,0.1)',
     navigationBackground: '#ffffff',
     placeholderBackground: '#ccced1',
+    dividerBackground: '#dddddd',
   },
 });
 
