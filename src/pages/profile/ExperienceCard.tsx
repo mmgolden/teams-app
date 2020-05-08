@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '../../base/styled';
-import { Card, CardTitle } from '../../components/card';
+import { Card, CardTitle, EmptyText } from '../../components/card';
 import { Specialist } from '../../typings/specialist';
 import DOMPurify from 'dompurify';
 import { sanitizeUrl } from '@braintree/sanitize-url';
@@ -62,7 +62,7 @@ export const ExperienceCard: React.FC<Props> = ({ specialist }) => {
           })}
         </>
       ) : (
-        <p className="empty-text">No experience found</p>
+        <EmptyText>No experience found</EmptyText>
       )}
     </StyledExperienceCard>
   );
@@ -70,12 +70,6 @@ export const ExperienceCard: React.FC<Props> = ({ specialist }) => {
 
 const StyledExperienceCard = styled(Card)`
   margin-bottom: 3rem;
-
-  .empty-text {
-    color: ${({ theme }) => theme.colors.subtleFont};
-    font-size: 1rem;
-    margin: 0;
-  }
 
   .experience-title {
     color: ${({ theme }) => theme.colors.primaryFont};

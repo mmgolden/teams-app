@@ -44,17 +44,4 @@ const StyledProfileCard = styled(Card)`
   .profile-spacer {
     margin: 1.5rem 0;
   }
-
-  .profile-heading {
-    color: ${({ theme }) => theme.colors.primaryFont};
-    font-weight: 500;
-    margin: 0 0 0.75rem 0;
-    font-size: 1.25rem;
-  }
-
-  .empty-text {
-    color: ${({ theme }) => theme.colors.subtleFont};
-    font-size: 1rem;
-    margin: 0;
-  }
 `;
