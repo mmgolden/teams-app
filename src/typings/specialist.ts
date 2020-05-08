@@ -34,6 +34,10 @@ interface Experience {
   links?: Link[];
 }
 
+interface Language {
+  code: string;
+}
+
 export interface Specialist {
   assets: [];
   balance: number;
@@ -44,7 +48,7 @@ export interface Specialist {
   experience: Experience[];
   has_transactions: number;
   id: number;
-  languages: [];
+  languages: Language[];
   links: Link[];
   next_payment_at: string | null;
   notes: string | null;
