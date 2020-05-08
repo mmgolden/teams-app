@@ -16,11 +16,11 @@ export const SpecialistDetails: React.FC<Props> = ({
     user: { first_name, last_name, created_at },
     title,
     description,
+    city,
   },
 }) => {
   const formattedCreatedAt = dayjs(created_at).format('MMMM D, YYYY');
 
-  // TODO: Add city information
   return (
     <DetailsContainer>
       {profile_image ? (
@@ -40,6 +40,12 @@ export const SpecialistDetails: React.FC<Props> = ({
         <>
           <h2 className="specialist-heading">Title</h2>
           <p className="specialist-text">{title}</p>
+        </>
+      )}
+      {city && (
+        <>
+          <h2 className="specialist-heading">Location</h2>
+          <p className="specialist-text">{`${city.name}, ${city.region.name}`}</p>
         </>
       )}
       {description && (

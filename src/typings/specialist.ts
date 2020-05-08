@@ -38,11 +38,32 @@ interface Language {
   code: string;
 }
 
+interface Country {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+interface Region {
+  id: number;
+  name: string;
+  slug: string;
+  country: CountQueuingStrategy;
+}
+
+interface City {
+  id: number;
+  name: string;
+  slug: string;
+  region: Region;
+}
+
 export interface Specialist {
   assets: [];
   balance: number;
   causes: [];
   checkpoints: Checkpoint[];
+  city: City;
   deliverables: [];
   description: string;
   experience: Experience[];
