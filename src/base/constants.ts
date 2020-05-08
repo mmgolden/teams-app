@@ -5,6 +5,7 @@ export const ERROR_MESSAGES = {
   PASSWORD_REQUIRED: 'Please enter password',
 };
 
+export const TOKEN_TYPE = 'wethos-token-type';
 export const ACCESS_TOKEN_KEY = 'wethos-access-token';
 export const REFRESH_TOKEN_KEY = 'wethos-refresh-token';
 export const ACCESS_TOKEN_EXPIRATION = 'wethos-access-token-expiration';

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@braintree/sanitize-url": "^4.0.1",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@testing-library/jest-dom": "^4.2.4",
@@ -13,8 +14,11 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "axios": "^0.19.2",
+    "dayjs": "^1.8.26",
+    "dompurify": "^2.0.11",
     "emotion-theming": "^10.0.27",
     "formik": "^2.1.4",
+    "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.1.2",
@@ -47,6 +51,8 @@
     ]
   },
   "devDependencies": {
+    "@types/braintree__sanitize-url": "^4.0.0",
+    "@types/dompurify": "^2.0.1",
     "@types/react-router": "^5.1.7",
     "@types/react-router-config": "^5.0.1",
     "@types/react-router-dom": "^5.1.5",

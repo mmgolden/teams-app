@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '../../base/styled';
-import { Card } from '../../components/Card';
+import { Card } from '../../components/card';
 import { LoginForm } from './LoginForm';
 import logo from '../../assets/wethos.png';
 import { useHistory } from 'react-router';
@@ -34,18 +34,18 @@ export const LoginPage: React.FC = () => {
   }, [history]);
 
   return (
-    <PageContainer>
+    <LoginPageContainer>
       <div className="login-container">
         <img src={logo} alt="Wethos logo" className="login-logo" />
         <Card>
           <LoginForm onSuccess={handleSuccess} />
         </Card>
       </div>
-    </PageContainer>
+    </LoginPageContainer>
   );
 };
 
-const PageContainer = styled.main`
+const LoginPageContainer = styled.main`
   background: ${({ theme }) => theme.colors.pageBackground};
   width: 100%;
   height: 100vh;
