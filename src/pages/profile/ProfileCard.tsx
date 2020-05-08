@@ -2,10 +2,10 @@ import React from 'react';
 import styled from '../../base/styled';
 import { Specialist } from '../../typings/specialist';
 import { Card } from '../../components/Card';
-import { sanitizeUrl } from '@braintree/sanitize-url';
 import { Divider } from '../../components/Divider';
 import { Tags } from '../../components/Tags';
 import { SpecialistDetails } from './SpecialistDetails';
+import { SpecialistLinks } from './SpecialistLinks';
 
 interface Props {
   specialist: Specialist;
@@ -22,7 +22,7 @@ const getLanguage = (code: string) => {
 };
 
 export const ProfileCard: React.FC<Props> = ({ specialist }) => {
-  const { links, languages } = specialist;
+  const { languages } = specialist;
 
   const formattedLanguages = languages.map((language) =>
     getLanguage(language.code)
@@ -34,30 +34,11 @@ export const ProfileCard: React.FC<Props> = ({ specialist }) => {
       <div className="profile-spacer">
         <Divider />
       </div>
-      <h2 className="profile-section-title">Social Links</h2>
-      {links.length > 0 ? (
-        <ul className="social-links-list">
-          {links.map((link) => {
-            return (
-              <li key={link.title}>
-                <a
-                  href={sanitizeUrl(link.url)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.title}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
-        <p className="empty-text">No social links found</p>
-      )}
+      <SpecialistLinks specialist={specialist} />
       <div className="profile-spacer">
         <Divider />
       </div>
-      <h2 className="profile-section-title">Languages</h2>
+      <h2 className="profile-heading">Languages</h2>
       {languages.length > 0 ? (
         <Tags tags={formattedLanguages} />
       ) : (
@@ -79,30 +60,19 @@ const StyledProfileCard = styled(Card)`
   }
 
   .profile-spacer {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
+  }
+
+  .profile-heading {
+    color: ${({ theme }) => theme.colors.primaryFont};
+    font-weight: 500;
+    margin: 0 0 0.75rem 0;
+    font-size: 1.25rem;
   }
 
   .empty-text {
     color: ${({ theme }) => theme.colors.subtleFont};
     font-size: 1rem;
     margin: 0;
-  }
-
-  .social-links-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: center;
-
-    a {
-      display: block;
-      color: ${({ theme }) => theme.colors.primary};
-      padding: 0.25rem 0;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
 `;
