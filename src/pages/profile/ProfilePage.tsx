@@ -11,6 +11,7 @@ import { Specialist } from '../../typings/specialist';
 import { PageError } from '../../components/PageError';
 import { ProfileCard } from './ProfileCard';
 import { ExperienceCard } from './ExperienceCard';
+import { DeliverablesCard } from './DeliverablesCard';
 
 export const ProfilePage: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -65,6 +66,7 @@ export const ProfilePage: React.FC = () => {
         <ProfileCard specialist={specialist} />
         <div className="profile-column">
           <ExperienceCard specialist={specialist} />
+          <DeliverablesCard specialist={specialist} />
         </div>
       </ProfilePageContainer>
     </Layout>

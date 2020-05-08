@@ -59,13 +59,31 @@ interface City {
   region: Region;
 }
 
+interface Usage {
+  specialists: number;
+  tasks: number;
+}
+
+interface Deliverable {
+  base_amount: number;
+  base_points: number;
+  base_unit_plural: string;
+  base_unit_singular: string;
+  brief: string;
+  description: string;
+  id: number;
+  name: string;
+  status: string;
+  usage: Usage;
+}
+
 export interface Specialist {
   assets: [];
   balance: number;
   causes: [];
   checkpoints: Checkpoint[];
   city: City;
-  deliverables: [];
+  deliverables: Deliverable[];
   description: string;
   experience: Experience[];
   has_transactions: number;
