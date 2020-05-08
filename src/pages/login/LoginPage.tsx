@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '../../base/styled';
-import { Card } from '../../components/Card';
+import { Card } from '../../components/card';
 import { LoginForm } from './LoginForm';
 import logo from '../../assets/wethos.png';
 import { useHistory } from 'react-router';

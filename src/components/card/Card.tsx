@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '../base/styled';
+import styled from '../../base/styled';
 
 interface Props {
   className?: string;

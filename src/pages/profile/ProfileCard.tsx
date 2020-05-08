@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '../../base/styled';
 import { Specialist } from '../../typings/specialist';
-import { Card } from '../../components/Card';
+import { Card } from '../../components/card';
 import { Divider } from '../../components/Divider';
 import { SpecialistDetails } from './SpecialistDetails';
 import { SpecialistLanguages } from './SpecialistLanguages';

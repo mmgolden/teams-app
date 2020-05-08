@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '../../base/styled';
-import { Card } from '../../components/Card';
+import { Card } from '../../components/card';
 import { Specialist } from '../../typings/specialist';
 import DOMPurify from 'dompurify';
 import { sanitizeUrl } from '@braintree/sanitize-url';
@@ -69,6 +69,8 @@ export const ExperienceCard: React.FC<Props> = ({ specialist }) => {
 };
 
 const StyledExperienceCard = styled(Card)`
+  margin-bottom: 3rem;
+
   .experience-card-title {
     color: ${({ theme }) => theme.colors.primaryFont};
     font-weight: 500;
