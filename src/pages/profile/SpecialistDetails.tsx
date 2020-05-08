@@ -4,6 +4,7 @@ import { sanitizeUrl } from '@braintree/sanitize-url';
 import dayjs from 'dayjs';
 import { Specialist } from '../../typings/specialist';
 import DOMPurify from 'dompurify';
+import { ReactComponent as ProfileIcon } from '../../assets/profile.svg';
 
 interface Props {
   specialist: Specialist;
@@ -29,7 +30,9 @@ export const SpecialistDetails: React.FC<Props> = ({
           className="specialist-image"
         />
       ) : (
-        <div className="specialist-image-placeholder" />
+        <div className="specialist-image-placeholder">
+          <ProfileIcon />
+        </div>
       )}
       <h1 className="specialist-name">{`${first_name} ${last_name}`}</h1>
       <p className="specialist-text">{`Member since ${formattedCreatedAt}`}</p>
@@ -42,7 +45,7 @@ export const SpecialistDetails: React.FC<Props> = ({
       {description && (
         <>
           <h2 className="specialist-heading">Description</h2>
-          <p
+          <div
             className="specialist-description"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(description),
@@ -65,6 +68,14 @@ const DetailsContainer = styled.div`
 
   .specialist-image-placeholder {
     background: ${({ theme }) => theme.colors.placeholderBackground};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 120px;
+      fill: ${({ theme }) => theme.colors.contrastFont};
+    }
   }
 
   .specialist-name {
@@ -91,5 +102,15 @@ const DetailsContainer = styled.div`
     margin: 0;
     font-size: 0.875rem;
     line-height: 1.5rem;
+    text-align: left;
+
+    a {
+      color: ${({ theme }) => theme.colors.primary};
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 `;
