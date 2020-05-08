@@ -36,6 +36,7 @@ interface Experience {
 
 interface Language {
   code: string;
+  level: number;
 }
 
 interface Country {
@@ -48,7 +49,7 @@ interface Region {
   id: number;
   name: string;
   slug: string;
-  country: CountQueuingStrategy;
+  country: Country;
 }
 
 interface City {
