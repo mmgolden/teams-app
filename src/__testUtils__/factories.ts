@@ -1,4 +1,6 @@
-export const userFactory = (values?: { [key: string]: string }) => ({
+import { User } from '../typings/user';
+
+export const userFactory = (values?: { [key: string]: string }): User => ({
   id: 1,
   created_at: '2020-05-04 17:09:43',
   email: 'michael@dundermifflin.com',
