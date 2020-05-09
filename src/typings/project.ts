@@ -238,7 +238,7 @@ export interface Project {
   checkpoints: [];
   contacts: [];
   created_at: string;
-  currentscope: CurrentScope;
+  currentscope: CurrentScope | null;
   description: string;
   emoji: string | null;
   id: number;

@@ -73,7 +73,7 @@ export interface Specialist {
   balance: number;
   causes: Cause[];
   checkpoints: Checkpoint[];
-  city: City;
+  city: City | null;
   deliverables: Deliverable[];
   description: string;
   experience: Experience[];
