@@ -111,7 +111,6 @@ const Nav = styled.nav<NavProps>`
     display: none;
 
     @media screen and (min-width: 992px) {
-      display: block;
       background: ${({ theme }) => theme.colors.primary};
       width: 40px;
       height: 40px;
@@ -119,6 +118,9 @@ const Nav = styled.nav<NavProps>`
       justify-content: center;
       align-items: center;
       border-radius: 50%;
+      padding: 0;
+      border: none;
+      padding: 10px;
     }
   }
 
