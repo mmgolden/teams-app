@@ -14,8 +14,6 @@ interface Props {
 export const ProfileCard: React.FC<Props> = ({ specialist }) => {
   const { links, languages } = specialist;
 
-  console.log(specialist);
-
   return (
     <StyledProfileCard>
       <SpecialistDetails specialist={specialist} />
