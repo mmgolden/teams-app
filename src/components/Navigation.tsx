@@ -3,37 +3,65 @@ import styled from '../base/styled';
 import { NavLink, Link } from 'react-router-dom';
 import { ROUTES } from '../base/routes';
 import logo from '../assets/wethos.png';
-import { BaseButton } from './buttons';
+import { BaseButton, PrimaryButton } from './buttons';
 import { ReactComponent as ProfileIcon } from '../assets/profile.svg';
 import Tippy from '@tippyjs/react';
 import { AccountMenu } from './AccountMenu';
+import { BurgerButton } from './buttons/BurgerButton';
+import { UserContext } from './UserProvider';
+import { useHistory } from 'react-router';
+import { clearLocalStorageAuth } from '../base/auth/clearLocalStorageAuth';
+
+interface NavProps {
+  isMenuOpen: boolean;
+}
 
 export const Navigation: React.FC = () => {
+  const { setUser } = React.useContext(UserContext);
+  const history = useHistory();
+
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const handleMenuToggle = () => setIsMenuOpen(!isMenuOpen);
+
+  const handleLogout = () => {
+    clearLocalStorageAuth();
+    setUser(undefined);
+    history.push(ROUTES.SIGN_IN);
+  };
+
   return (
-    <NavigationContainer>
-      <Nav>
-        <div className="flex-container">
+    <NavigationContainer isMenuOpen={isMenuOpen}>
+      <Nav isMenuOpen={isMenuOpen}>
+        <div className="logo-container">
           <Link to={ROUTES.HOME}>
             <img src={logo} alt="Wethos logo" className="navigation-logo" />
           </Link>
-          <NavList>
-            <li>
-              <NavLink to={ROUTES.HOME}>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to={ROUTES.PROJECTS}>Projects</NavLink>
-            </li>
-          </NavList>
+          <BurgerButton
+            isMenuOpen={isMenuOpen}
+            handleMenuToggle={handleMenuToggle}
+          />
         </div>
+        <NavList isMenuOpen={isMenuOpen}>
+          <li>
+            <NavLink to={ROUTES.HOME}>Home</NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.PROJECTS}>Projects</NavLink>
+          </li>
+          <li className="mobile-sign-out">
+            <PrimaryButton onClick={handleLogout}>Sign out</PrimaryButton>
+          </li>
+        </NavList>
         <Tippy
-          content={<AccountMenu />}
+          content={<AccountMenu onLogout={handleLogout} />}
           trigger="click"
           placement="bottom"
           interactive
           animation="shift-away"
           duration={[200, 200]}
         >
-          <BaseButton className="account-button" label="Account menu">
+          <BaseButton className="account-button" ariaLabel="Account menu">
             <ProfileIcon className="account-icon" />
           </BaseButton>
         </Tippy>
@@ -42,42 +70,56 @@ export const Navigation: React.FC = () => {
   );
 };
 
-const NavigationContainer = styled.header`
+const NavigationContainer = styled.header<NavProps>`
   background: ${({ theme }) => theme.colors.navigationBackground};
   height: 70px;
   display: flex;
   justify-content: center;
-  padding: 0 1.875rem;
+  padding: ${({ isMenuOpen }) => (isMenuOpen ? '0' : '0 1.875rem')};
 `;
 
-const Nav = styled.nav`
+const Nav = styled.nav<NavProps>`
   display: flex;
   align-items: center;
-  width: 100%;
+  flex: 1;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   @media screen and (min-width: 992px) {
     max-width: 1134px;
+    flex-wrap: nowrap;
   }
 
-  .flex-container {
+  .logo-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    height: 70px;
+    flex: 1;
+    padding: ${({ isMenuOpen }) => (isMenuOpen ? '0 1.875rem' : '0')};
   }
 
   .navigation-logo {
     width: 50px;
-    margin-right: 3rem;
+
+    @media screen and (min-width: 992px) {
+      margin-right: 3rem;
+    }
   }
 
   .account-button {
-    background: ${({ theme }) => theme.colors.primary};
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+    display: none;
+
+    @media screen and (min-width: 992px) {
+      display: block;
+      background: ${({ theme }) => theme.colors.primary};
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
   }
 
   .account-icon {
@@ -86,11 +128,33 @@ const Nav = styled.nav`
   }
 `;
 
-const NavList = styled.ul`
+const NavList = styled.ul<NavProps>`
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 1rem;
   list-style: none;
-  display: flex;
+  display: ${({ isMenuOpen }) => (isMenuOpen ? 'flex' : 'none')};
+  flex-direction: column;
+  flex-basis: 100%;
+  height: 100vh;
+  z-index: 999;
+  width: 100%;
+  background: ${({ theme }) => theme.colors.cardBackground};
+
+  @media screen and (min-width: 992px) {
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+    height: auto;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: 992px) {
+      margin: 0;
+    }
+  }
 
   li a {
     color: ${({ theme }) => theme.colors.subtleFont};
@@ -117,6 +181,16 @@ const NavList = styled.ul`
       border-radius: 2px;
       position: absolute;
       background: ${({ theme }) => theme.colors.primary};
+    }
+  }
+
+  .mobile-sign-out {
+    button {
+      margin-left: 1rem;
+    }
+
+    @media screen and (min-width: 992px) {
+      display: none;
     }
   }
 `;

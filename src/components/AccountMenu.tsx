@@ -1,25 +1,16 @@
 import React from 'react';
 import styled from '../base/styled';
 import { BaseButton } from './buttons';
-import { UserContext } from './UserProvider';
-import { useHistory } from 'react-router';
-import { clearLocalStorageAuth } from '../base/auth/clearLocalStorageAuth';
-import { ROUTES } from '../base/routes';
 
-export const AccountMenu: React.FC = () => {
-  const { setUser } = React.useContext(UserContext);
-  const history = useHistory();
+interface Props {
+  onLogout: () => void;
+}
 
-  const handleLogout = () => {
-    clearLocalStorageAuth();
-    setUser(undefined);
-    history.push(ROUTES.SIGN_IN);
-  };
-
+export const AccountMenu: React.FC<Props> = ({ onLogout }) => {
   return (
     <MenuContainer>
       <h2 className="account-menu-heading">Account</h2>
-      <BaseButton onClick={handleLogout} className="account-menu-button">
+      <BaseButton onClick={onLogout} className="account-menu-button">
         Sign out
       </BaseButton>
     </MenuContainer>
