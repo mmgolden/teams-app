@@ -19,6 +19,7 @@
     "dompurify": "^2.0.11",
     "emotion-theming": "^10.0.27",
     "formik": "^2.1.4",
+    "mockdate": "^2.0.5",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
