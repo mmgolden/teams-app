@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '../../base/styled';
-import { Card, CardTitle, EmptyText } from '../../components/card';
+import { Card, CardTitle, EmptyText } from '../../components/cards';
 import { Specialist } from '../../typings/specialist';
 import DOMPurify from 'dompurify';
 import { sanitizeUrl } from '@braintree/sanitize-url';

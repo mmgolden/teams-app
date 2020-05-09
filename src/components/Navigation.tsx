@@ -1,16 +1,10 @@
 import React from 'react';
 import styled from '../base/styled';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../base/routes';
 import logo from '../assets/wethos.png';
-import { useHistory } from 'react-router-dom';
 
 export const Navigation: React.FC = () => {
-  const history = useHistory();
-  const {
-    location: { pathname },
-  } = history;
-
   return (
     <NavigationContainer>
       <div className="navigation-container">
@@ -18,28 +12,10 @@ export const Navigation: React.FC = () => {
         <nav>
           <NavList>
             <li>
-              <Link
-                to={ROUTES.HOME}
-                className={
-                  pathname === ROUTES.HOME
-                    ? 'active-navigation-link'
-                    : undefined
-                }
-              >
-                Home
-              </Link>
+              <NavLink to={ROUTES.HOME}>Home</NavLink>
             </li>
             <li>
-              <Link
-                to={ROUTES.PROJECTS}
-                className={
-                  pathname === ROUTES.PROJECTS
-                    ? 'active-navigation-link'
-                    : undefined
-                }
-              >
-                Projects
-              </Link>
+              <NavLink to={ROUTES.PROJECTS}>Projects</NavLink>
             </li>
           </NavList>
         </nav>
@@ -90,7 +66,7 @@ const NavList = styled.ul`
     }
   }
 
-  .active-navigation-link {
+  .active {
     color: ${({ theme }) => theme.colors.primaryFont};
 
     &:after {

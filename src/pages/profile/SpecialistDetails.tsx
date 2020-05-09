@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from '../../base/styled';
-import { sanitizeUrl } from '@braintree/sanitize-url';
 import dayjs from 'dayjs';
 import { Specialist } from '../../typings/specialist';
 import DOMPurify from 'dompurify';
-import { ReactComponent as ProfileIcon } from '../../assets/profile.svg';
+import { Avatar } from '../../components/Avatar';
 
 interface Props {
   specialist: Specialist;
@@ -21,20 +20,12 @@ export const SpecialistDetails: React.FC<Props> = ({
 }) => {
   const formattedCreatedAt = dayjs(created_at).format('MMMM D, YYYY');
 
+  const name = `${first_name} ${last_name}`;
+
   return (
     <DetailsContainer>
-      {profile_image ? (
-        <img
-          src={sanitizeUrl(profile_image)}
-          alt={`${first_name} ${last_name}`}
-          className="specialist-image"
-        />
-      ) : (
-        <div className="specialist-image-placeholder">
-          <ProfileIcon />
-        </div>
-      )}
-      <h1 className="specialist-name">{`${first_name} ${last_name}`}</h1>
+      <Avatar image={profile_image} name={name} />
+      <h1 className="specialist-name">{name}</h1>
       <p className="specialist-text">{`Member since ${formattedCreatedAt}`}</p>
       {title && (
         <>
@@ -64,26 +55,6 @@ export const SpecialistDetails: React.FC<Props> = ({
 };
 
 const DetailsContainer = styled.div`
-  .specialist-image,
-  .specialist-image-placeholder {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin: 0 auto;
-  }
-
-  .specialist-image-placeholder {
-    background: ${({ theme }) => theme.colors.placeholderBackground};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    svg {
-      width: 120px;
-      fill: ${({ theme }) => theme.colors.contrastFont};
-    }
-  }
-
   .specialist-name {
     color: ${({ theme }) => theme.colors.primaryFont};
     font-size: 2rem;

@@ -1,25 +1,9 @@
 import { User } from './user';
+import { Project } from './project';
 
 interface Checkpoint {
   created_at: string;
   slug: string;
-}
-
-interface Project {
-  brief: string | null;
-  created_at: string;
-  description: string;
-  emoji: string | null;
-  id: number;
-  name: string;
-  notes: string | null;
-  payment_model: string;
-  slack_channel: string | null;
-  slug: string;
-  sow_template_organization: string | null;
-  sow_template_specialist: string | null;
-  statement_of_purpose: string;
-  status: string;
 }
 
 interface Link {

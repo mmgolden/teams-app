@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '../../base/styled';
 import { Specialist } from '../../typings/specialist';
-import { Card } from '../../components/card';
+import { Card } from '../../components/cards';
 import { Divider } from '../../components/Divider';
 import { SpecialistDetails } from './SpecialistDetails';
 import { SpecialistLanguages } from './SpecialistLanguages';
@@ -13,8 +13,6 @@ interface Props {
 
 export const ProfileCard: React.FC<Props> = ({ specialist }) => {
   const { links, languages } = specialist;
-
-  console.log(specialist);
 
   return (
     <StyledProfileCard>
