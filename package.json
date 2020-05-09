@@ -6,14 +6,7 @@
     "@braintree/sanitize-url": "^4.0.1",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "@tippyjs/react": "^4.0.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
     "axios": "^0.19.2",
     "dayjs": "^1.8.26",
     "dompurify": "^2.0.11",
@@ -53,14 +46,22 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "@types/braintree__sanitize-url": "^4.0.0",
     "@types/dompurify": "^2.0.1",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
     "@types/react-loader-spinner": "^3.1.0",
     "@types/react-router": "^5.1.7",
     "@types/react-router-config": "^5.0.1",
     "@types/react-router-dom": "^5.1.5",
     "@types/yup": "^0.28.0",
     "eslint": "^6.8.0",
+    "mockdate": "^2.0.5",
     "prettier": "^2.0.5"
   }
 }

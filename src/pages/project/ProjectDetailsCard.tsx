@@ -20,16 +20,32 @@ export const ProjectDetailsCard: React.FC<Props> = ({ project }) => {
   return (
     <StyledProjectDetailsCard>
       <h1 className="project-name">{name}</h1>
-      <h2 className="project-organization-name">{organizationName}</h2>
-      <div className="project-spacer">
-        <Divider />
-      </div>
-      <h3 className="project-details-heading">Slug</h3>
-      <p className="project-details-text">{slug}</p>
-      <h3 className="project-details-heading">Description</h3>
-      <p className="project-details-text">{description}</p>
-      <h3 className="project-details-heading">Statement of Purpose</h3>
-      <p className="project-details-text">{statement_of_purpose}</p>
+      {organizationName && (
+        <h2 className="project-organization-name">{organizationName}</h2>
+      )}
+      {(slug || description || statement_of_purpose) && (
+        <div className="project-spacer">
+          <Divider />
+        </div>
+      )}
+      {slug && (
+        <>
+          <h3 className="project-details-heading">Slug</h3>
+          <p className="project-details-text">{slug}</p>
+        </>
+      )}
+      {description && (
+        <>
+          <h3 className="project-details-heading">Description</h3>
+          <p className="project-details-text">{description}</p>
+        </>
+      )}
+      {statement_of_purpose && (
+        <>
+          <h3 className="project-details-heading">Statement of Purpose</h3>
+          <p className="project-details-text">{statement_of_purpose}</p>
+        </>
+      )}
     </StyledProjectDetailsCard>
   );
 };
