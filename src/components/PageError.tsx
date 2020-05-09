@@ -18,6 +18,7 @@ const PageErrorContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 2rem;
 
   .error-title {
     font-size: 2rem;

@@ -12,6 +12,7 @@ import { Project } from '../../typings/project';
 import { PageError } from '../../components/PageError';
 import { Card } from '../../components/cards';
 import { ROUTES } from '../../base/routes';
+import { PageLoader } from '../../components/PageLoader';
 
 export const ProjectsPage: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -46,16 +47,18 @@ export const ProjectsPage: React.FC = () => {
       });
   }, []);
 
-  if (isLoading || !projects) {
-    return null;
-  }
-
-  if (error) {
+  if (isLoading) {
     return (
       <Layout>
-        <ProjectsPageContainer>
-          <PageError error={error} />
-        </ProjectsPageContainer>
+        <PageLoader />
+      </Layout>
+    );
+  }
+
+  if (error || !projects) {
+    return (
+      <Layout>
+        <PageError error={error || ERROR_MESSAGES.GENERIC} />
       </Layout>
     );
   }

@@ -16,6 +16,7 @@ import { ProjectLeadCard } from './ProjectLeadCard';
 import { AccountStrategistCard } from './AccountStrategistCard';
 import { SpecialistsCard } from './SpecialistsCard';
 import { LinksCard } from './LinksCard';
+import { PageLoader } from '../../components/PageLoader';
 
 export const ProjectPage: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -50,16 +51,18 @@ export const ProjectPage: React.FC = () => {
       });
   }, [projectId]);
 
-  if (isLoading || !project) {
-    return null;
-  }
-
-  if (error) {
+  if (isLoading) {
     return (
       <Layout>
-        <ProjectPageContainer>
-          <PageError error={error} />
-        </ProjectPageContainer>
+        <PageLoader />
+      </Layout>
+    );
+  }
+
+  if (error || !project) {
+    return (
+      <Layout>
+        <PageError error={error || ERROR_MESSAGES.GENERIC} />
       </Layout>
     );
   }
