@@ -36,6 +36,7 @@ export const ProjectDetailsCard: React.FC<Props> = ({ project }) => {
 
 const StyledProjectDetailsCard = styled(Card)`
   height: 100%;
+  margin: 0 0 3rem 0;
 
   @media screen and (min-width: 992px) {
     flex-basis: 400px;
