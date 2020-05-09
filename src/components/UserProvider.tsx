@@ -8,7 +8,7 @@ interface Props {
 
 interface IUserContext {
   user?: User;
-  setUser: (user: User) => void;
+  setUser: (user?: User) => void;
 }
 
 const UserContext = React.createContext<IUserContext>({
