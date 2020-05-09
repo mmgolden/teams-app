@@ -32,7 +32,7 @@ const Button = styled(BaseButton)<ButtonProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
+  width: 31px;
   height: 24px;
   outline: none;
   padding: 0;
