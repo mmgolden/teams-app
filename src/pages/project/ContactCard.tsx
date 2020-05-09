@@ -16,9 +16,9 @@ export const ContactCard: React.FC<Props> = ({ project }) => {
       <CardTitle>Contact</CardTitle>
       {contacts.length > 0 ? (
         <div>
-          {contacts.map((contact) => ({
-            /* Contact */
-          }))}
+          {contacts.map((contact) => {
+            return <div />;
+          })}
         </div>
       ) : (
         <EmptyText>This project has no contacts</EmptyText>
