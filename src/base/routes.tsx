@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import { LoginPage } from '../pages/login';
 import { ProfilePage } from '../pages/profile';
+import { ProjectsPage } from '../pages/projects';
 
 export const ROUTES = {
   SIGN_IN: '/signin',
@@ -26,6 +27,11 @@ export const privateRoutes = [
     path: ROUTES.HOME,
     exact: true,
     component: ProfilePage,
+  },
+  {
+    path: ROUTES.PROJECTS,
+    exact: true,
+    component: ProjectsPage,
   },
   {
     path: '*',

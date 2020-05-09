@@ -5,7 +5,7 @@ interface Checkpoint {
   slug: string;
 }
 
-interface Project {
+export interface Project {
   brief: string | null;
   created_at: string;
   description: string;
