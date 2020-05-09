@@ -3,7 +3,7 @@ import styled from '../../base/styled';
 
 interface Props {
   className?: string;
-  label?: string;
+  ariaLabel?: string;
   type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
   disabled?: boolean;
@@ -15,7 +15,7 @@ export const BaseButton = React.forwardRef<HTMLButtonElement, Props>(
     {
       children,
       className,
-      label,
+      ariaLabel,
       type = 'button',
       onClick = () => {},
       disabled = false,
@@ -25,7 +25,7 @@ export const BaseButton = React.forwardRef<HTMLButtonElement, Props>(
     return (
       <StyledBaseButton
         type={type}
-        aria-label={label}
+        aria-label={ariaLabel}
         onClick={onClick}
         disabled={disabled}
         className={className}
