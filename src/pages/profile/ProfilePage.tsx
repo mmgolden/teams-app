@@ -13,6 +13,7 @@ import { ProfileCard } from './ProfileCard';
 import { ExperienceCard } from './ExperienceCard';
 import { DeliverablesCard } from './DeliverablesCard';
 import { CausesCard } from './CausesCard';
+import { PageLoader } from '../../components/PageLoader';
 
 export const ProfilePage: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -47,16 +48,18 @@ export const ProfilePage: React.FC = () => {
       });
   }, []);
 
-  if (isLoading || !specialist) {
-    return null;
-  }
-
-  if (error) {
+  if (isLoading) {
     return (
       <Layout>
-        <ProfilePageContainer>
-          <PageError error={error} />
-        </ProfilePageContainer>
+        <PageLoader />
+      </Layout>
+    );
+  }
+
+  if (error || !specialist) {
+    return (
+      <Layout>
+        <PageError error={error || ERROR_MESSAGES.GENERIC} />
       </Layout>
     );
   }
