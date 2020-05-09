@@ -1,44 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Teams
 
-## Available Scripts
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fe2adc3c-7f32-40e3-8395-702f2a3a6790/deploy-status)](https://app.netlify.com/sites/melinda-golden-teams/deploys)
 
-In the project directory, you can run:
+**Visit [https://melinda-golden-teams.netlify.app](https://melinda-golden-teams.netlify.app/) to view the demo.**
 
-### `yarn start`
+This is a "read-only" [React](https://reactjs.org/) app that requests data from an API and displays a user profile, a list of projects, and a project summary. Given the time constraint, I decided it would be best to use React because it is the library I am most familiar with.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img src="https://user-images.githubusercontent.com/14826719/81486665-43ab5000-9224-11ea-80e4-033b2263580d.jpg" alt="Teams screenshot" width="800px" />
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 📄 Docs
 
-### `yarn test`
+- [Getting started](./docs/setup/SETUP.md)
+- [Security](./docs/security/SECURITY.md)
+- [Wireframes](./docs/wireframes/WIREFRAMES.md)
+- [Testing](./docs/tests/TESTS.md)
+- [Accessibility](./docs/accessibility/ACCESSIBILITY.md)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚡ Technologies
 
-### `yarn build`
+- React
+- React Router
+- TypeScript
+- Axios
+- Emotion
+- React Testing Library
+- Jest
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ✅ Requirements
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Please write a little application that authenticates against the development API server with your personal account, and then displays a page with a summary of your user profile
+2. Somewhere in the app, provide a link to the projects you have been added to; when users click the link, display a brief summary of the project however you like
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ✏️ User stories
 
-### `yarn eject`
+- A user can use an email and password to login into their account
+- A user can view their profile summary
+- A user can click on a link and view their projects
+- A user can click on a project and view the project summary
+- A user can log out of their account
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 📋 To dos
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [x] Add CSS reset
+- [x] Create login form
+- [x] Login form validation
+- [x] Login authentication
+- [x] Logout
+- [x] Navigation and routing
+- [x] Mobile navigation
+- [x] Loading indicator
+- [x] Profile page
+- [x] Projects page
+- [x] Project page
+- [x] Tests
+- [ ] Add more specific server error messages
+- [ ] Do something with the refresh token
+- [ ] Truncate the specialist description and add "show more"
+- [ ] Loading icon for login
