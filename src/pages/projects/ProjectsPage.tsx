@@ -8,9 +8,10 @@ import {
   TOKEN_TYPE,
   ERROR_MESSAGES,
 } from '../../base/constants';
-import { Project } from '../../typings/specialist';
+import { Project } from '../../typings/project';
 import { PageError } from '../../components/PageError';
 import { Card } from '../../components/cards';
+import { ROUTES } from '../../base/routes';
 
 export const ProjectsPage: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -65,7 +66,11 @@ export const ProjectsPage: React.FC = () => {
         {projects.length > 0 &&
           projects.map((project) => {
             return (
-              <Link to="/" key={project.id} className="project-link">
+              <Link
+                to={`${ROUTES.PROJECTS}/${project.id}`}
+                key={project.id}
+                className="project-link"
+              >
                 <ProjectCard>
                   <h2 className="project-name">{project.name}</h2>
                 </ProjectCard>
