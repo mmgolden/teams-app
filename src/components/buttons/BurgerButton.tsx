@@ -21,9 +21,9 @@ export const BurgerButton: React.FC<Props> = ({
       ariaLabel="Toggle navigation"
       isMenuOpen={isMenuOpen}
     >
-      <span className="burger-button-line first-line" />
-      <span className="burger-button-line second-line" />
-      <span className="burger-button-line third-line" />
+      <span className="animated-line first-line" />
+      <span className="animated-line second-line" />
+      <span className="animated-line third-line" />
     </Button>
   );
 };
@@ -33,7 +33,7 @@ const Button = styled(BaseButton)<ButtonProps>`
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
-  height: 21px;
+  height: 24px;
   outline: none;
   padding: 0;
   border-radius: 0;
@@ -42,13 +42,14 @@ const Button = styled(BaseButton)<ButtonProps>`
     display: none;
   }
 
-  .burger-button-line {
+  .animated-line {
     display: block;
-    background: ${({ theme }) => theme.colors.primaryFont};
-    height: 3px;
-    width: 28px;
+    background: ${({ theme }) => theme.colors.primary};
+    height: 4px;
+    width: 31px;
     transform-origin: 1px;
     transition: all 0.3s linear;
+    border-radius: 2px;
   }
 
   .first-line {
