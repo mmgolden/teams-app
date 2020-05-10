@@ -31,6 +31,7 @@ export const ProfilePage: React.FC = () => {
       return;
     }
 
+    // Get the specialist data from the API
     axios
       .get(`${process.env.REACT_APP_API_URL}/currentspecialist`, {
         headers: {

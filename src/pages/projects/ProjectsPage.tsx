@@ -30,6 +30,7 @@ export const ProjectsPage: React.FC = () => {
       return;
     }
 
+    // Get the specialist data from the API to grab the projects
     axios
       .get(`${process.env.REACT_APP_API_URL}/currentspecialist`, {
         headers: {

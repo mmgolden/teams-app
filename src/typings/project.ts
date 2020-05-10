@@ -168,7 +168,7 @@ interface CurrentScope {
   checkpoints: [];
 }
 
-interface Organization {
+export interface Organization {
   id: number;
   name: string;
   slug: string;

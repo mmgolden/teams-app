@@ -11,11 +11,13 @@ interface IUserContext {
   setUser: (user?: User) => void;
 }
 
+// Creates the user context
 const UserContext = React.createContext<IUserContext>({
   user: undefined,
   setUser: () => {},
 });
 
+// Check if there is a currently authenticated user
 const getCachedUser = (isAuthenticated: boolean) => {
   if (!isAuthenticated) {
     return undefined;
@@ -24,6 +26,7 @@ const getCachedUser = (isAuthenticated: boolean) => {
   return getCurrentUser();
 };
 
+// UserProvider is used to get or set the current user anywhere in the app
 const UserProvider: React.FC<Props> = ({ isAuthenticated, children }) => {
   const cachedUser = getCachedUser(isAuthenticated);
 

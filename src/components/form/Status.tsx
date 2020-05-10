@@ -7,6 +7,9 @@ interface Props {
   close: () => void;
 }
 
+/**
+ * Status should be used for form server error messages
+ */
 export const Status: React.FC<Props> = ({ status, close }) => {
   return (
     <StatusContainer onClick={close}>

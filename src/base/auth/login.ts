@@ -13,6 +13,11 @@ interface Options {
   user: User;
 }
 
+/**
+ * Adds authentication and user to local storage
+ * @param {object} authentication
+ * @param {object} user
+ */
 export const login = ({ authentication, user }: Options) => {
   const now = new Date();
   const expirationDate = new Date(
