@@ -34,6 +34,7 @@ export const ProjectPage: React.FC = () => {
       return;
     }
 
+    // Get the project data from the API
     axios
       .get(`${process.env.REACT_APP_API_URL}/projects/${projectId}`, {
         headers: {

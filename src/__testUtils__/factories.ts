@@ -1,7 +1,12 @@
 import { User } from '../typings/user';
 import { Specialist } from '../typings/specialist';
-import { Project } from '../typings/project';
+import { Project, Organization } from '../typings/project';
 
+/**
+ * Generates a user
+ * @param {object} values - Key value pairs that override the default values
+ * @returns {object}
+ */
 export const userFactory = (values?: { [key: string]: string }): User => ({
   id: 1,
   created_at: '2020-05-04 17:09:43',
@@ -15,7 +20,14 @@ export const userFactory = (values?: { [key: string]: string }): User => ({
   ...values,
 });
 
-export const organizationFactory = (values?: { [key: string]: string }) => ({
+/**
+ * Generates an organization
+ * @param {object} values - Key value pairs that override the default values
+ * @returns {object}
+ */
+export const organizationFactory = (values?: {
+  [key: string]: string;
+}): Organization => ({
   about: null,
   description: null,
   id: 1,
@@ -28,6 +40,11 @@ export const organizationFactory = (values?: { [key: string]: string }) => ({
   ...values,
 });
 
+/**
+ * Generates a project
+ * @param {object} values - Key value pairs that override the default values
+ * @returns {object}
+ */
 export const projectFactory = (values?: {
   [key: string]: string;
 }): Project => ({
@@ -59,6 +76,11 @@ export const projectFactory = (values?: {
   ...values,
 });
 
+/**
+ * Generates a specialist
+ * @param {object} values - Key value pairs that override the default values
+ * @returns {object}
+ */
 export const specialistFactory = (values?: {
   [key: string]: string;
 }): Specialist => ({

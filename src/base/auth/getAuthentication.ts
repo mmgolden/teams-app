@@ -6,6 +6,12 @@ interface Options {
   handleErrors: () => void;
 }
 
+/**
+ * Gets the authentication info from the API
+ * @param {string} username - The user's email
+ * @param {password} password
+ * @returns {object} Authentication object
+ */
 export const getAuthentication = async ({
   username,
   password,

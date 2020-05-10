@@ -10,6 +10,10 @@ interface Props {
   children?: React.ReactNode;
 }
 
+/*
+ * BaseButton should be used for any new button components
+ * This resets some of the default styling
+ */
 export const BaseButton = React.forwardRef<HTMLButtonElement, Props>(
   (
     {

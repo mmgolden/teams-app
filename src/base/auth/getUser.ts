@@ -6,6 +6,12 @@ interface Options {
   handleErrors: () => void;
 }
 
+/**
+ * Gets the user from the API
+ * @param {object} authentication
+ * @param {function} handleErrors
+ * @returns {object} User object
+ */
 export const getUser = async ({ authentication, handleErrors }: Options) => {
   if (!authentication) {
     return;
