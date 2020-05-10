@@ -15,6 +15,7 @@ This is a "read-only" [React](https://reactjs.org/) app that requests data from 
 - [Wireframes](./docs/wireframes/WIREFRAMES.md)
 - [Testing](./docs/tests/TESTS.md)
 - [Accessibility](./docs/accessibility/ACCESSIBILITY.md)
+- [Types](./docs/types/TYPES.md)
 
 ## ⚡ Technologies
 
