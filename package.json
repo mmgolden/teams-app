@@ -7,7 +7,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@tippyjs/react": "^4.0.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dayjs": "^1.8.26",
     "dompurify": "^2.0.11",
     "emotion-theming": "^10.0.27",
