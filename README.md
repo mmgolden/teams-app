@@ -1,9 +1,5 @@
 # Teams
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fe2adc3c-7f32-40e3-8395-702f2a3a6790/deploy-status)](https://app.netlify.com/sites/melinda-golden-teams/deploys)
-
-**Visit [https://melinda-golden-teams.netlify.app](https://melinda-golden-teams.netlify.app/) to view the demo.**
-
 This is a "read-only" [React](https://reactjs.org/) app that requests data from an API and displays a user profile, a list of projects, and a project summary. Given the time constraint, I decided it would be best to use React because it is the library I am most familiar with.
 
 <img src="https://user-images.githubusercontent.com/14826719/81486665-43ab5000-9224-11ea-80e4-033b2263580d.jpg" alt="Teams screenshot" width="800px" />
